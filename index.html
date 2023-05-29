@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beer World</title>
+    <link rel="icon" href="./assets/img/bottle-icon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/005737a0f6.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="./src/styles/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand" id="logo-brand"><span class="brand-logo-text">Beer </span><img
+                        class="logo-img" src="./assets/img/bottle-icon.svg" alt="bottle-img"><span
+                        class="brand-logo-text"> World</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a href="#" class="nav-link" id="list-beers-link">Beers</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" id="get-random-beer">Random Beer</a></li>
+                    </ul>
+                    <div class="alert alert-danger search-error hidden" role="alert">
+                        Did not find any beers!
+                        <button type="button" class="btn-close" aria-label="Close" id="no-beer-err"></button>
+                    </div>
+                    <span class="spinner-border loading-spinner hidden"></span>
+                    <form action="" class="d-flex" id="search-form">
+                        <input class="form-control me-2" type="text" placeholder="Search" required id="search-input">
+                        <button class="btn btn-outline-success" type="submit"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="hero-container">
+            <div class="p-5 bg-primary text-white hero">
+                <div class="container p-5 rounded jumbotron">
+                    <h1 class="hero-title">Hello Beer Lovers</h1>
+                    <p>Discover new beers, explore the brewing process and find information on your favorite brews with
+                        our comprehensive
+                        beer search app. With an extensive database of all types of beer from around the world, this app
+                        is the ultimate
+                        resource for beer enthusiasts.</p>
+                    <button class="btn btn-lg btn-light" type="button" id="hero-action-btn">Discover new beer</button>
+                </div>
+            </div>
+            <div class="container bg-light p-3">
+                <div class="text-center">
+                    <h2>Dear Traveler</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg">
+                        <p>If you are interested in exploring the wonderful world of beer tasting, you can now search
+                            for all types of beers on
+                            an online platform. This website allows you to search and compare different beer styles and
+                            brands, and read
+                            descriptions from fellow beer enthusiasts.
+                        </p>
+                        <p>
+                            On this website, you can browse through a vast selection of beers from all over the world,
+                            including traditional
+                            ales, lagers, stouts, and specialty beers. You can use the search filters to narrow down
+                            your options by style, ABV,
+                            date of first brew, or even by specific flavors.
+                        </p>
+                        <p>
+                            Once you find a beer that catches your eye, you can read detailed descriptions, learn about
+                            the brewing process, and
+                            even discover food pairings that complement the beer's flavors. The website provides an
+                            opportunity to discover and
+                            taste a wide range of beers and connect with like-minded beer enthusiasts.
+                        </p>
+                        <p>
+                            Using this website can be an enjoyable and educational experience that allows you to explore
+                            new beers and expand
+                            your knowledge of beer styles and flavors. Whether you are a beer expert or a novice, this
+                            platform provides an
+                            opportunity to discover and taste a wide range of beers and connect with like-minded beer
+                            enthusiasts. So, if you
+                            are ready to embark on a journey of taste and discovery, visit this website and start your
+                            beer tasting adventure
+                            today.
+                        </p>
+                    </div>
+                    <div class="col-lg">
+                        <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                            alt="beer pint" class="img-thumbnail">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-loader hidden">
+            <div class="loader"></div>
+        </div>
+        <div class="container" id="main-content">
+            <div class="container p-3">
+                <div class="btn-group">
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown"><i
+                                class="fa-solid fa-filter"></i> Items Per-page</button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item beers-per-page" id="beers-10" data-value="10">10 beers</a>
+                            <a href="#" class="dropdown-item beers-per-page" id="beers-20" data-value="20">20 beers</a>
+                            <a href="#" class="dropdown-item beers-per-page" id="beers-30" data-value="30">30 beers</a>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown"><i
+                                class="fa-solid fa-filter"></i> Sort by</button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item" id="sort-by-name-asc"><i class="fa-solid fa-arrow-up"></i>
+                                Name A-Z</a>
+                            <a href="#" class="dropdown-item" id="sort-by-name-des"><i
+                                    class="fa-solid fa-arrow-down"></i> Name Z-A</a>
+                            <a href="#" class="dropdown-item" id="sort-by-abv-asc"><i class="fa-solid fa-arrow-up"></i>
+                                ABV</a>
+                            <a href="#" class="dropdown-item" id="sort-by-abv-des"><i
+                                    class="fa-solid fa-arrow-down"></i> ABV</a>
+                            <a href="#" class="dropdown-item" id="sort-by-ibu-asc"><i class="fa-solid fa-arrow-up"></i>
+                                Bitterness</a>
+                            <a href="#" class="dropdown-item" id="sort-by-ibu-des"><i
+                                    class="fa-solid fa-arrow-down"></i> Bitterness</a>
+                            <a href="#" class="dropdown-item" id="sort-by-date-asc"><i class="fa-solid fa-arrow-up"></i>
+                                Production date oldest</a>
+                            <a href="#" class="dropdown-item" id="sort-by-date-des"><i
+                                    class="fa-solid fa-arrow-down"></i> Production date newest</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-page">
+                <div class="item-container item-grid">
+                    <!-- CARDS -->
+                </div>
+                <div class="pages pt-3">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item prev-page-item disabled"><a href="#" class="page-link"
+                                id="prev-page">Previous</a></li>
+                        <li class="page-item next-page-item"><a href="#" class="page-link" id="next-page">Next</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="detail-content container">
+            <div class="container p-2 border-bottom m-2"><button class="btn btn-primary" id="back-btn"><i
+                        class="fa-solid fa-arrow-left"></i> Back</button></div>
+            <div class="row">
+                <div class="col-md" id="detail-img">
+                </div>
+                <div class="col-md" id="detail-body">
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/005737a0f6.js" crossorigin="anonymous"></script>
+    <script src="./src/scripts/app.js" type="module"></script>
+</body>
+
+</html>

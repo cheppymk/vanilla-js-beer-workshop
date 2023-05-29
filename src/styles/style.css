@@ -1,0 +1,133 @@
+.logo-img {
+  width: 70px;
+}
+
+.brand-logo-text {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.loading-spinner {
+  margin-right: 16px;
+}
+
+.search-error {
+  position: absolute;
+  top: 6vh;
+  right: 2vw;
+  z-index: 2;
+}
+
+.hero {
+  background: url("../../assets/img/beer-hero.png");
+  background-size: 100%;
+  background-clip: padding-box;
+}
+
+.jumbotron {
+  backdrop-filter: blur(20px);
+}
+
+.hero-title {
+  text-shadow: black 3px 3px 5px;
+}
+
+/* LOADER */
+
+.main-loader {
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.loader {
+  --height-of-loader: 4px;
+  --loader-color: #0071e2;
+  width: 60%;
+  height: var(--height-of-loader);
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  background: var(--loader-color);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 30px;
+  animation: moving 1s ease-in-out infinite;
+}
+
+@keyframes moving {
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+    left: unset;
+  }
+}
+
+/* END LOADER */
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+@media screen and (max-width: 1400px) {
+  .item-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .item-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .hero {
+    background: url("https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+    background-size: 100%;
+  }
+}
+@media screen and (max-width: 990px) {
+  .item-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 575px) {
+  .item-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .hero {
+    background-size: cover;
+  }
+}
+
+.img-card {
+  /* width: 50px; */
+  max-height: 200px;
+  width: auto;
+}
+
+#main-content {
+  display: none;
+}
+
+.detail-img {
+  height: 600px;
+}
+
+.detail-content {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
